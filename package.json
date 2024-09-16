@@ -1,0 +1,20 @@
+{
+  "name": "bot-telegram-check-var",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "migrate:up": "node migrate.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "fs": "^0.0.1-security",
+    "pg": "^8.12.0",
+    "telegraf": "^4.16.3"
+  }
+}
