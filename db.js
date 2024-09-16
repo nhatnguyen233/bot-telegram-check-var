@@ -16,7 +16,7 @@ const createPool = () => {
           ? { rejectUnauthorized: false }
           : false, // SSL configuration
     });
-
+    console.log({ process: process.env });
     // Event listener for errors on the pool
     pool.on("error", (err) => {
       console.error("Unexpected error on idle client", err);
@@ -59,4 +59,19 @@ const createTableIfNotExists = async (client) => {
   await client.query(createTableQuery);
 };
 
-module.exports = { dbClient, closePool, createTableIfNotExists };
+async function createIndex(client) {
+  try {
+    await client.query(`
+      CREATE INDEX IF NOT EXISTS idx_notes_fulltext
+      ON transactions USING gin(to_tsvector('english', notes));
+    `);
+
+    console.log("Index created successfully.");
+  } catch (err) {
+    console.error("Error creating index:", err.stack);
+  } finally {
+    client.release();
+  }
+}
+
+module.exports = { dbClient, closePool, createTableIfNotExists, createIndex };
