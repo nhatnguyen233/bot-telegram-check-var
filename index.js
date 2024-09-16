@@ -30,7 +30,7 @@ bot.on(message("text"), async (ctx) => {
     const message = transactions
       .map(
         (row) =>
-          `Date: ${row.date}\nAmount: ${row.amount}\nNotes: ${row.notes}\nCode: ${row.code}`
+          `Ngày chuyển: ${row.date}\nSố tiền: ${row.amount} VND\nNội dung: ${row.notes}\nCode: ${row.code}`
       )
       .join("\n\n");
 
