@@ -16,7 +16,7 @@ const createPool = () => {
           ? { rejectUnauthorized: false }
           : false, // SSL configuration
     });
-    console.log({ process: process.env });
+
     // Event listener for errors on the pool
     pool.on("error", (err) => {
       console.error("Unexpected error on idle client", err);
