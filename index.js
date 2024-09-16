@@ -17,7 +17,6 @@ app.get("/api/transactions", getTransactions);
 app.use(bot.webhookCallback("/bot/webhook"));
 
 bot.on(message("text"), async (ctx) => {
-  console.log("Received new message::", ctx);
   const text = ctx.update.message.text;
 
   try {

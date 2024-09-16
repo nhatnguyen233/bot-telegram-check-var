@@ -32,7 +32,7 @@ const getTransactionsAPI = async (text) => {
   }
 
   // Add sorting by date and limit to 100 results
-  query += " ORDER BY date DESC LIMIT 100";
+  query += " ORDER BY date DESC LIMIT 10";
 
   try {
     const client = await dbClient();
