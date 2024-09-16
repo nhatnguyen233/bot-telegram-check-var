@@ -13,6 +13,7 @@ app.get("/health", healthCheck);
 app.get("/api/transactions", getTransactions);
 
 bot.on("/bot/webhook", async (msg) => {
+  console.log("Received new message::", msg);
   const chatId = msg.chat.id;
   const text = msg.text;
 
