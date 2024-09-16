@@ -12,7 +12,7 @@ app.get("/health", healthCheck);
 // Handler for text messages
 app.get("/api/transactions", getTransactions);
 
-bot.on("/bot/message", async (msg) => {
+bot.on("/bot/webhook", async (msg) => {
   const chatId = msg.chat.id;
   const text = msg.text;
 
