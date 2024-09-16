@@ -18,7 +18,7 @@ app.use(bot.webhookCallback("/bot/webhook"));
 
 bot.on(message("text"), async (ctx) => {
   console.log("Received new message::", ctx);
-  const text = ctx.text;
+  const text = ctx.update.message.text;
 
   try {
     const transactions = await getTransactionsAPI(text);
@@ -38,7 +38,6 @@ bot.on(message("text"), async (ctx) => {
     await ctx.reply(message);
   } catch (err) {
     console.error("Error executing query", err.stack);
-    res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
